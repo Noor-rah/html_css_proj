@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #7809df, #1f013a, #7809df);
+            font-family: Arial, sans-serif;
+        }
+        .top-bar {
+            background-color: #7809df;
+            padding: 20px;
+            text-align: center;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color:white;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 50px;
+            justify-items: center;
+        }
+        .box {
+            width: 100%;
+            max-width: 500px;   
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+        .box .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .box:hover .overlay {
+            opacity: 1;
+        }
+        .box:hover img {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">GAMERS NATION</div>
+    <div class="container">
+        <a href="xbox.html" class="box">
+            <img src="xbox.jpg" alt="Xbox">
+            <div class="overlay">Xbox</div>
+        </a>
+        <a href="playstation.html" class="box">
+            <img src="playstation.jpg" alt="PlayStation">
+            <div class="overlay">PlayStation</div>
+        </a>
+        <a href="nintendo.html" class="box">
+            <img src="nintendo.png" alt="Nintendo">
+            <div class="overlay">Nintendo</div>
+        </a>
+        <a href="pcgames.html" class="box">
+            <img src="epic_Steam.png" alt="PC Games">
+            <div class="overlay">PC Games</div>
+        </a>
+    </div>
+</body>
+</html>

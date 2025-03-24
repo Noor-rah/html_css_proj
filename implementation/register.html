@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: translate(-50%, -50%);
+            animation: rotateBackground 20s infinite linear;
+            z-index: -1;
+        }
+
+        @keyframes rotateBackground {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg) scale(2);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg) scale(2);
+            }
+        }
+
+        #box {
+            width: 300px;
+            height: auto;
+            border: 10px black solid;
+            background-color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        #box h1 {
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        #box form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #box form input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #box form button {
+            width: 80%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div id="box">
+        <h1>REGISTER</h1>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+            <button type="button" onclick="location.href='home.html'">Register</button>
+            <button type="button" onclick="location.href='login.html'">Back to Login</button>
+        </form>
+    </div>
+</body>
+</html>

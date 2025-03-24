@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Using Roboto as a close alternative to SST */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E60012;
+            overflow-y: scroll;
+        }
+
+        .top-bar {
+            width: 100%;
+            background-color: #f6f8fa;
+            padding: 1px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .top-bar h1 {
+            color:black;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+        }
+
+        .banner-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            margin-top: 5%; /* space for the top bar and additional 10px */
+        }
+
+        .banner {
+            width: 80%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+        }
+
+        .banner img {
+            width: 80%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 110%;
+            opacity: 0.5;
+            transition: opacity 0.5s ease, left 0.5s ease;
+        }
+
+        .banner img.active {
+            left: 10%;
+            opacity: 1;
+        }
+
+        .banner img.next {
+            left: 90%;
+            opacity: 0.5;
+        }
+
+        .banner img.prev {
+            left: -70%;
+            opacity: 0.5;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            margin-top: 20px; /* space below the banner */
+        }
+
+        .window-box {
+            background-color: white;
+            border: 2px solid #ccc;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .window-box img {
+            width: 120%;
+            height: 120%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .window-box .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .window-box:hover .overlay {
+            opacity: 1;
+        }
+
+        .window-box:hover img {
+            opacity: 0.7;
+        }
+
+        .window-box.size-20-80 {
+            width: 30%;
+            height: 40vh;
+        }
+
+        .window-box.size-70-30 {
+            width: 60%;
+            height: 40vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Nintendo Games</h1>
+    </div>
+    <div class="banner-container">
+        <div class="banner">
+            <img src="nintendo4.jpg" alt="PlayStation Image 1" class="active">
+            <img src="nintendo5.jpg" alt="PlayStation Image 2" class="next">
+            <img src="nintendo6.jpg" alt="PlayStation Image 3">
+            <img src="nintendo2.avif" alt="PlayStation Image 4" class="prev">
+        </div>
+    </div>
+    <div class="content">
+        <a href="buy.html" class="window-box size-20-80">
+            <img src="nintendo2.avif" alt="Window Image 1">
+            <div class="overlay">Buy Now</div>
+        </a>
+        <a href="buy.html" class="window-box size-70-30">
+            <img src="nintendo3.jpg" alt="Window Image 2">
+            <div class="overlay">Buy Now</div>
+        </a>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.banner img');
+        const totalImages = images.length;
+
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            images[(currentIndex + 1) % totalImages].classList.remove('next');
+            images[(currentIndex + totalImages - 1) % totalImages].classList.remove('prev');
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add('active');
+            images[(currentIndex + 1) % totalImages].classList.add('next');
+            images[(currentIndex + totalImages - 1) % totalImages].classList.add('prev');
+        }, 3000); // Change interval to 3 seconds
+    </script>
+</body>
+</html>
